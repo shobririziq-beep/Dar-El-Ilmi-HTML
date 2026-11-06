@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Katalog perpustakaan digital Dar El Ilmi.">
+  <title>Perpustakaan Digital | Dar El Ilmi</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body data-page="perpustakaan">
+  <div class="site-loader" aria-hidden="true">
+    <div class="loader-brand"><span class="loader-emblem">✦</span><span>Dar El Ilmi</span></div>
+  </div>
+
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <div id="site-header"></div>
+
+  <main id="main" class="container page-main">
+
+    <section class="page-banner reveal">
+      <h1>Perpustakaan digital.</h1>
+      <p>
+        Jelajahi contoh bacaan seputar sains, teknologi, desain,
+        sastra, dan pengembangan diri. Cari judul dan simpan bacaan
+        favorit dalam daftar lokal.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="image-feature">
+        <div class="image-frame reveal">
+          <img
+            data-parallax="0.025"
+            src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=85"
+            alt="Interior perpustakaan dengan rak buku"
+            loading="lazy"
+          >
+          <span class="image-tag">Read widely. Think deeply.</span>
+        </div>
+
+        <div class="feature-copy reveal delay-1">
+          <span class="section-kicker">Library & research hub</span>
+          <h2>Tempat gagasan baru dimulai.</h2>
+          <p>
+            Perpustakaan adalah ruang untuk menelusuri pertanyaan,
+            membangun sudut pandang, dan menghubungkan ide lintas bidang.
+          </p>
+
+          <ul class="feature-list">
+            <li><span class="feature-check">✓</span><span><b>Temukan</b> bacaan melalui pencarian dan kategori.</span></li>
+            <li><span class="feature-check">✓</span><span><b>Simpan</b> buku yang ingin dibaca di perangkat ini.</span></li>
+            <li><span class="feature-check">✓</span><span><b>Jelajahi</b> sains, teknologi, desain, dan sastra.</span></li>
+          </ul>
+
+          <div class="notice">
+            Katalog dan penyimpanan bacaan hanya untuk demonstrasi.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading reveal">
+        <span class="section-kicker">Explore the collection</span>
+        <h2>Katalog bacaan pilihan.</h2>
+        <p>Cari berdasarkan judul atau penulis, lalu filter kategori.</p>
+      </div>
+
+      <div class="library-toolbar reveal">
+        <label class="search-box">
+          <span class="search-symbol">⌕</span>
+          <input
+            id="librarySearch"
+            type="search"
+            placeholder="Cari buku, penulis, atau topik..."
+            aria-label="Cari buku"
+          >
+        </label>
+
+        <span class="pill">
+          Tersimpan:
+          <strong id="savedBookCount" style="margin-left:4px">0</strong>
+        </span>
+      </div>
+
+      <div class="filter-group" style="margin-bottom:22px">
+        <button class="filter-btn active" type="button" data-book-filter="all">Semua</button>
+        <button class="filter-btn" type="button" data-book-filter="Sains">Sains</button>
+        <button class="filter-btn" type="button" data-book-filter="Teknologi">Teknologi</button>
+        <button class="filter-btn" type="button" data-book-filter="Kreativitas">Kreativitas</button>
+        <button class="filter-btn" type="button" data-book-filter="Sastra">Sastra</button>
+        <button class="filter-btn" type="button" data-book-filter="Pengembangan Diri">Pengembangan Diri</button>
+        <button class="filter-btn" type="button" data-book-filter="Belajar & Pengembangan">Belajar</button>
+        <button class="filter-btn" type="button" data-book-filter="Desain">Desain</button>
+        <button class="filter-btn" type="button" data-book-filter="Sosial">Sosial</button>
+      </div>
+
+      <div class="book-grid" id="bookGrid">
+
+        <article class="book-card reveal" data-category="Belajar & Pengembangan" data-title="the art of learning">
+          <div class="book-cover">
+            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=82" alt="Buku tentang proses belajar" loading="lazy">
+            <span class="book-type">Belajar & Pengembangan</span>
+          </div>
+          <div class="book-content">
+            <h3>The Art of Learning</h3>
+            <div class="book-author">Josh Waitzkin</div>
+            <p>Buku tentang strategi belajar, fokus, dan peningkatan kemampuan.</p>
+            <div class="book-bottom">
+              <span class="book-code">KODE · BK-001</span>
+              <button class="btn btn-outline" type="button" data-save-book="BK-001">Simpan bacaan +</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card reveal" data-category="Sains" data-title="cosmos">
+          <div class="book-cover">
+            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=82" alt="Buku dan pengetahuan sains" loading="lazy">
+            <span class="book-type">Sains</span>
+          </div>
+          <div class="book-content">
+            <h3>Cosmos</h3>
+            <div class="book-author">Carl Sagan</div>
+            <p>Mengajak pembaca menjelajahi alam semesta dan rasa ingin tahu ilmiah.</p>
+            <div class="book-bottom">
+              <span class="book-code">KODE · BK-002</span>
+              <button class="btn btn-outline" type="button" data-save-book="BK-002">Simpan bacaan +</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card reveal" data-category="Kreativitas" data-title="designing your life">
+          <div class="book-cover">
+            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=800&q=82" alt="Buku dan perlengkapan membaca" loading="lazy">
+            <span class="book-type">Kreativitas</span>
+          </div>
+          <div class="book-content">
+            <h3>Designing Your Life</h3>
+            <div class="book-author">Bill Burnett & Dave Evans</div>
+            <p>Pendekatan kreatif untuk merancang pilihan dan perjalanan masa depan.</p>
+            <div class="book-bottom">
+              <span class="book-code">KODE · BK-003</span>
+              <button class="btn btn-outline" type="button" data-save-book="BK-003">Simpan bacaan +</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card reveal" data-category="Teknologi" data-title="the code book">
+          <div class="book-cover">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=82" alt="Laptop dengan kode pemrograman" loading="lazy">
+            <span class="book-type">Teknologi</span>
+          </div>
+          <div class="book-content">
+            <h3>The Code Book</h3>
+            <div class="book-author">Simon Singh</div>
+            <p>Cerita tentang kode rahasia, matematika, dan sejarah kriptografi.</p>
+            <div class="book-bottom">
+              <span class="book-code">KODE · BK-004</span>
+              <button class="btn btn-outline" type="button" data-save-book="BK-004">Simpan bacaan +</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card reveal" data-category="Sains" data-title="a short history of nearly everything">
+          <div class="book-cover">
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=82" alt="Tumpukan buku untuk dibaca" loading="lazy">
+            <span class="book-type">Sains</span>
+          </div>
+          <div class="book-content">
+            <h3>A Short History of Nearly Everything</h3>
+            <div class="book-author">Bill Bryson</div>
+            <p>Perjalanan populer tentang ide yang membentuk pemahaman dunia.</p>
+            <div class="book-bottom">
+              <span class="book-code">KODE · BK-005</span>
+              <button class="btn btn-outline" type="button" data-save-book="BK-005">Simpan bacaan +</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card reveal" data-category="Pengembangan Diri" data-title="the power of habit">
+          <div class="book-cover">
+            <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=800&q=82" alt="Buku sebagai sumber pengembangan diri" loading="lazy">
+            <span class="book-type">Pengembangan Diri</span>
+          </div>
+          <div class="book-content">
+            <h3>The Power of Habit</h3>
+            <div class="book-author">Charles Duhigg</div>
+            <p>Membahas bagaimana kebiasaan terbentuk dan bagaimana perubahan dimulai.</p>
+            <div class="book-bottom">
+              <span class="book-code">KODE · BK-006</span>
+              <button class="btn btn-outline" type="button" data-save-book="BK-006">Simpan bacaan +</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card reveal" data-category="Desain" data-title="the design of everyday things">
+          <div class="book-cover">
+            <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=800&q=82" alt="Rak buku dan bahan bacaan" loading="lazy">
+            <span class="book-type">Desain</span>
+          </div>
+          <div class="book-content">
+            <h3>The Design of Everyday Things</h3>
+            <div class="book-author">Don Norman</div>
+            <p>Mengenal bagaimana desain memengaruhi penggunaan benda dan sistem.</p>
+            <div class="book-bottom">
+              <span class="book-code">KODE · BK-007</span>
+              <button class="btn btn-outline" type="button" data-save-book="BK-007">Simpan bacaan +</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card reveal" data-category="Sosial" data-title="factfulness">
+          <div class="book-cover">
+            <img src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?auto=format&fit=crop&w=800&q=82" alt="Buku untuk mempelajari data dan masyarakat" loading="lazy">
+            <span class="book-type">Sosial</span>
+          </div>
+          <div class="book-content">
+            <h3>Factfulness</h3>
+            <div class="book-author">Hans Rosling</div>
+            <p>Belajar membaca data dan menguji asumsi tentang dunia.</p>
+            <div class="book-bottom">
+              <span class="book-code">KODE · BK-008</span>
+              <button class="btn btn-outline" type="button" data-save-book="BK-008">Simpan bacaan +</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="book-card reveal" data-category="Sastra" data-title="the little prince">
+          <div class="book-cover">
+            <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=800&q=82" alt="Buku bacaan sastra" loading="lazy">
+            <span class="book-type">Sastra</span>
+          </div>
+          <div class="book-content">
+            <h3>The Little Prince</h3>
+            <div class="book-author">Antoine de Saint-Exupéry</div>
+            <p>Kisah sastra tentang hubungan, tanggung jawab, dan makna.</p>
+            <div class="book-bottom">
+              <span class="book-code">KODE · BK-009</span>
+              <button class="btn btn-outline" type="button" data-save-book="BK-009">Simpan bacaan +</button>
+            </div>
+          </div>
+        </article>
+
+        <div id="libraryEmpty" class="empty-state" hidden>
+          Tidak ada buku yang cocok. Coba kata kunci atau kategori lain.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta reveal">
+        <div>
+          <h2>Terus pelihara rasa ingin tahu.</h2>
+          <p>Jelajahi program pendidikan dan temukan bidang yang membuatmu bersemangat.</p>
+        </div>
+        <a class="btn btn-primary" href="program.html">Lihat program →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ | Dar El Ilmi</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body data-page="faq">
+<a class="skip-link" href="#main">Lewati ke konten</a>
+<div class="page-veil" id="pageVeil"><div class="veil-logo"></div>
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+<div id="site-header"></div>
+
+<main id="main" class="container">
+<section class="page-hero reveal">
+    <h1>Jawaban untuk pertanyaanmu.</h1>
+    <p>Temukan informasi mengenai website, perpustakaan, formulir, dan penyimpanan data demo.</p>
+</section>
+
+<section class="section">
+    <div class="two-column">
+        <div class="editorial-image reveal-left">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1100&q=85" alt="Perpustakaan">
+            <div class="image-badge">Explore · Learn · Discover</div>
+        </div>
+
+        <div class="faq-list reveal-right">
+            <details>
+                <summary>Apakah website menggunakan Laravel?</summary>
+                <div class="faq-answer">Tidak. Website ini menggunakan HTML, CSS, dan JavaScript biasa. Tidak memerlukan Composer, PHP, atau database.</div>
+            </details>
+            <details>
+                <summary>Mengapa setiap halaman memiliki file sendiri?</summary>
+                <div class="faq-answer">Karena website ini benar-benar multi-page. Misalnya, Profil menggunakan profil.html dan Perpustakaan menggunakan perpustakaan.html. CSS dan JavaScript dipakai bersama.</div>
+            </details>
+            <details>
+                <summary>Bagaimana cara menjalankannya?</summary>
+                <div class="faq-answer">Buka folder proyek di VS Code, lalu klik kanan index.html dan pilih Open with Live Server.</div>
+            </details>
+            <details>
+                <summary>Apakah formulir dapat bekerja tanpa database?</summary>
+                <div class="faq-answer">Ya, sebagai simulasi. Data disimpan dalam localStorage browser ini dan dapat dilihat pada halaman Data PPDB.</div>
+            </details>
+            <details>
+                <summary>Apakah data formulir dikirim ke sekolah?</summary>
+                <div class="faq-answer">Tidak. Data hanya disimpan di browser. Untuk pendaftaran resmi diperlukan backend, validasi server, dan penyimpanan data yang aman.</div>
+            </details>
+            <details>
+                <summary>Bagaimana cara mengubah tema?</summary>
+                <div class="faq-answer">Klik ikon bulan atau matahari di navigasi. Pilihan tema disimpan pada browser.</div>
+            </details>
+            <details>
+                <summary>Apakah gambar dan video memerlukan internet?</summary>
+                <div class="faq-answer">Ya. Gambar, font, dan video diambil dari sumber eksternal. Jika koneksi tidak tersedia, media mungkin tidak terlihat.</div>
+            </details>
+            <details>
+                <summary>Apakah nomor pendaftaran merupakan nomor resmi?</summary>
+                <div class="faq-answer">Bukan. Nomor hanya dibuat untuk simulasi alur formulir.</div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-heading reveal center">
+        <span class="kicker">Still need help?</span>
+        <h2>Belum menemukan jawaban?</h2>
+        <p>Gunakan halaman kontak untuk mencoba formulir pertanyaan demo.</p>
+        <a href="kontak.html" class="btn btn-primary" style="margin-top:18px">Buka halaman kontak →</a>
+    </div>
+</section>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

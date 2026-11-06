@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Alur pendaftaran peserta didik baru Dar El Ilmi.">
+  <title>Alur Pendaftaran | Dar El Ilmi</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+  <style>
+    /* =================================================
+       ALUR PENDAFTARAN — KHUSUS HALAMAN INI
+    ================================================= */
+
+    .alur-page {
+      padding-bottom: 65px;
+    }
+
+    .alur-intro {
+      max-width: 760px;
+      margin-bottom: 35px;
+    }
+
+    .alur-intro h2 {
+      color: #ffffff;
+      font-size: clamp(28px, 4vw, 39px);
+      line-height: 1.2;
+      letter-spacing: -1.2px;
+    }
+
+    .alur-intro p {
+      margin-top: 10px;
+      color: #d4e4fa;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .alur-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, .8fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .alur-white-card {
+      padding: 30px;
+      border: 1px solid #dce6f3;
+      border-radius: 20px;
+      background: #ffffff;
+      color: #102b50;
+      box-shadow: 0 14px 35px rgba(3, 21, 46, .15);
+    }
+
+    .alur-card-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #285fe8;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .alur-card-label::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #18a67d;
+    }
+
+    .alur-white-card h2 {
+      margin-top: 12px;
+      margin-bottom: 22px;
+      color: #102b50;
+      font-size: 23px;
+      line-height: 1.3;
+      letter-spacing: -.7px;
+    }
+
+    .alur-timeline {
+      display: grid;
+      gap: 0;
+    }
+
+    .alur-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 51px minmax(0, 1fr);
+      gap: 17px;
+      padding-bottom: 27px;
+    }
+
+    .alur-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .alur-step:not(:last-child)::after {
+      position: absolute;
+      top: 48px;
+      bottom: 0;
+      left: 25px;
+      width: 2px;
+      background: #e0e9f7;
+      content: "";
+    }
+
+    .alur-step-number {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      width: 51px;
+      height: 51px;
+      place-items: center;
+      border: 1px solid #d5e3fa;
+      border-radius: 15px;
+      background: #edf4ff;
+      color: #285fe8;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .alur-step h3 {
+      margin-top: 3px;
+      color: #102b50;
+      font-size: 15px;
+      font-weight: 850;
+    }
+
+    .alur-step p {
+      margin-top: 6px;
+      color: #657b97;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* PANEL PERSIAPAN */
+
+    .alur-check-list {
+      display: grid;
+      gap: 19px;
+    }
+
+    .alur-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+    }
+
+    .alur-check-icon {
+      display: grid;
+      width: 29px;
+      height: 29px;
+      flex: 0 0 29px;
+      place-items: center;
+      border-radius: 9px;
+      background: #e4f8ef;
+      color: #16865e;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .alur-check-item strong {
+      display: block;
+      color: #102b50;
+      font-size: 12px;
+    }
+
+    .alur-check-item p {
+      margin-top: 4px;
+      color: #71849e;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .alur-aside-button {
+      display: flex;
+      width: 100%;
+      margin-top: 24px;
+    }
+
+    .alur-aside-button .btn {
+      width: 100%;
+      justify-content: center;
+      background: #285fe8;
+      color: #ffffff;
+    }
+
+    /* =================================================
+       CTA PUTIH — KOTAK YANG DIPERBAIKI
+    ================================================= */
+
+    .alur-cta {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 45px;
+      padding: 37px;
+      overflow: hidden;
+      border: 1px solid #dbe6f4;
+      border-radius: 22px;
+      background: #ffffff;
+      color: #102b50;
+      box-shadow: 0 15px 40px rgba(3, 21, 46, .17);
+    }
+
+    .alur-cta::after {
+      position: absolute;
+      top: -100px;
+      right: 150px;
+      width: 220px;
+      height: 220px;
+      border: 1px solid #285fe81a;
+      border-radius: 50%;
+      box-shadow: 0 0 0 25px #285fe808;
+      content: "";
+      pointer-events: none;
+    }
+
+    .alur-cta-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+    }
+
+    .alur-cta-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #285fe8;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .alur-cta-label::before {
+      width: 25px;
+      height: 2px;
+      background: #285fe8;
+      content: "";
+    }
+
+    .alur-cta h2 {
+      margin-top: 10px;
+      color: #102b50;
+      font-size: clamp(25px, 3.5vw, 36px);
+      font-weight: 850;
+      line-height: 1.2;
+      letter-spacing: -1.2px;
+    }
+
+    .alur-cta p {
+      max-width: 570px;
+      margin-top: 10px;
+      color: #687e99;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .alur-cta-action {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .alur-cta-action .btn {
+      min-height: 48px;
+      padding-inline: 22px;
+      border: 0;
+      background: #285fe8;
+      color: #ffffff;
+      box-shadow: 0 9px 23px #285fe833;
+    }
+
+    .alur-cta-action .btn:hover {
+      background: #174bc7;
+      color: #ffffff;
+    }
+
+    .alur-footer-note {
+      margin-top: 17px;
+      color: #cbdcf2;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .alur-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .alur-cta {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 28px;
+      }
+
+      .alur-cta-action {
+        width: 100%;
+      }
+
+      .alur-cta-action .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .alur-white-card {
+        padding: 21px;
+      }
+
+      .alur-white-card h2 {
+        font-size: 20px;
+      }
+
+      .alur-step {
+        grid-template-columns: 43px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .alur-step-number {
+        width: 43px;
+        height: 43px;
+        border-radius: 12px;
+      }
+
+      .alur-step:not(:last-child)::after {
+        top: 43px;
+        left: 21px;
+      }
+
+      .alur-cta {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body data-page="alur">
+
+  <div class="site-loader" aria-hidden="true">
+    <div class="loader-brand">
+      <span class="loader-emblem">DI</span>
+      <span>Dar El Ilmi</span>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <div id="site-header"></div>
+
+  <main id="main" class="container page-main alur-page">
+
+    <!-- HERO HALAMAN -->
+
+    <section class="page-banner reveal">
+
+      <h1>Langkah jelas. Awal yang percaya diri.</h1>
+
+      <p>
+        Ketahui tahapan pendaftaran Dar El Ilmi secara terstruktur.
+        Persiapkan data dengan baik dan ikuti setiap langkahnya.
+      </p>
+    </section>
+
+    <!-- FOTO TAMBAHAN AKAN DITAMBAHKAN OTOMATIS OLEH SCRIPT -->
+
+    <!-- BAGIAN UTAMA -->
+
+    <section class="section">
+
+      <div class="alur-intro reveal">
+        <span class="section-kicker">Your admission journey</span>
+
+        <h2>Perjalanan dimulai dari satu langkah.</h2>
+
+        <p>
+          Ikuti lima tahap berikut untuk memahami proses pendaftaran
+          dari persiapan informasi hingga pengumuman.
+        </p>
+      </div>
+
+      <div class="alur-layout">
+
+        <!-- KARTU TAHAPAN PUTIH -->
+
+        <article class="alur-white-card reveal-left">
+
+          <span class="alur-card-label">
+            Application process
+          </span>
+
+          <h2>Lima tahapan pendaftaran.</h2>
+
+          <div class="alur-timeline">
+
+            <div class="alur-step">
+              <div class="alur-step-number">01</div>
+
+              <div>
+                <h3>Pelajari informasi sekolah</h3>
+
+                <p>
+                  Kenali profil sekolah, program pendidikan,
+                  fasilitas, jadwal, dan persyaratan pendaftaran.
+                </p>
+              </div>
+            </div>
+
+            <div class="alur-step">
+              <div class="alur-step-number">02</div>
+
+              <div>
+                <h3>Persiapkan data calon siswa</h3>
+
+                <p>
+                  Siapkan identitas, informasi sekolah asal,
+                  alamat, serta kontak orang tua atau wali.
+                </p>
+              </div>
+            </div>
+
+            <div class="alur-step">
+              <div class="alur-step-number">03</div>
+
+              <div>
+                <h3>Lengkapi formulir pendaftaran</h3>
+
+                <p>
+                  Masukkan seluruh informasi dengan benar,
+                  tentukan program pilihan, dan periksa ringkasan.
+                </p>
+              </div>
+            </div>
+
+            <div class="alur-step">
+              <div class="alur-step-number">04</div>
+
+              <div>
+                <h3>Verifikasi administrasi</h3>
+
+                <p>
+                  Dalam proses penerimaan nyata, pihak sekolah
+                  melakukan pemeriksaan data dan dokumen pendaftaran.
+                </p>
+              </div>
+            </div>
+
+            <div class="alur-step">
+              <div class="alur-step-number">05</div>
+
+              <div>
+                <h3>Pengumuman dan daftar ulang</h3>
+
+                <p>
+                  Ikuti informasi resmi hasil seleksi dan
+                  petunjuk daftar ulang dari pihak sekolah.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- KARTU PERSIAPAN PUTIH -->
+
+        <aside class="alur-white-card reveal-right">
+
+          <span class="alur-card-label">
+            Before you apply
+          </span>
+
+          <h2>Persiapkan semuanya.</h2>
+
+          <div class="alur-check-list">
+
+            <div class="alur-check-item">
+              <span class="alur-check-icon">✓</span>
+
+              <div>
+                <strong>Identitas calon siswa</strong>
+                <p>
+                  Nama lengkap, tanggal lahir, dan informasi pribadi
+                  yang dibutuhkan dalam formulir.
+                </p>
+              </div>
+            </div>
+
+            <div class="alur-check-item">
+              <span class="alur-check-icon">✓</span>
+
+              <div>
+                <strong>Informasi sekolah asal</strong>
+                <p>
+                  Nama sekolah, alamat, dan informasi pendidikan.
+                </p>
+              </div>
+            </div>
+
+            <div class="alur-check-item">
+              <span class="alur-check-icon">✓</span>
+
+              <div>
+                <strong>Kontak orang tua atau wali</strong>
+                <p>
+                  Nomor telepon yang dapat dihubungi.
+                </p>
+              </div>
+            </div>
+
+            <div class="alur-check-item">
+              <span class="alur-check-icon">✓</span>
+
+              <div>
+                <strong>Foto calon siswa</strong>
+                <p>
+                  Siapkan foto JPG atau PNG sesuai ketentuan
+                  yang nantinya ditetapkan sekolah.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="alur-aside-button">
+            <a class="btn" href="info.html">
+              Lihat informasi PPDB →
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+
+      <!-- CTA PUTIH YANG DIPERBAIKI -->
+
+      <section class="alur-cta reveal">
+
+        <div class="alur-cta-copy">
+
+          <span class="alur-cta-label">
+            Get started
+          </span>
+
+          <h2>Coba formulir pendaftaran.</h2>
+
+          <p>
+            Mulai isi formulir demonstrasi Dar El Ilmi.
+            Periksa data yang dimasukkan dan lihat ringkasannya
+            sebelum menyelesaikan simulasi.
+          </p>
+
+        </div>
+
+        <div class="alur-cta-action">
+          <a href="daftar.html" class="btn">
+            Mulai pendaftaran <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+</body>
+</html>

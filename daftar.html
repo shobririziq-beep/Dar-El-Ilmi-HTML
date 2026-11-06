@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Formulir demonstrasi pendaftaran Dar El Ilmi.">
+  <title>Form Pendaftaran | Dar El Ilmi</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+  <style>
+    /* Kotak unggah foto: biru solid, tidak transparan */
+    .upload-box {
+      padding: 22px;
+      border: 1px solid #285fe8;
+      border-radius: 15px;
+      background: #285fe8;
+      color: #ffffff;
+      box-shadow: 0 9px 22px rgba(40, 95, 232, .17);
+    }
+
+    .upload-box strong,
+    .upload-box b {
+      color: #ffffff;
+    }
+
+    .upload-box p,
+    .upload-box .help {
+      color: #eaf1ff;
+    }
+
+    .upload-box input {
+      display: block;
+      max-width: 100%;
+      margin-top: 14px;
+      color: #ffffff;
+      font-size: 12px;
+    }
+
+    .upload-box input::file-selector-button {
+      margin-right: 10px;
+      padding: 9px 13px;
+      border: 0;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #1745a5;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .upload-box input::file-selector-button:hover {
+      background: #eaf1ff;
+    }
+
+    .upload-box .photo-preview {
+      border: 3px solid #ffffff;
+    }
+
+    /* Tombol simpan harus terlihat jelas di kartu putih */
+    #registrationForm .btn-primary {
+      background: #285fe8;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(40, 95, 232, .22);
+    }
+
+    #registrationForm .btn-primary:hover {
+      background: #174bc7;
+      color: #ffffff;
+    }
+
+    .form-card,
+    .summary-card {
+      background: #ffffff;
+    }
+  </style>
+</head>
+
+<body data-page="daftar">
+
+  <div class="site-loader" aria-hidden="true">
+    <div class="loader-brand">
+      <span class="loader-emblem">DI</span>
+      <span>Dar El Ilmi</span>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <div id="site-header"></div>
+
+  <main id="main" class="container page-main">
+
+    <section class="page-banner reveal">
+
+      <h1>Formulir pendaftaran.</h1>
+
+      <p>
+        Lengkapi informasi calon siswa dengan benar.
+        Periksa ringkasan data sebelum menyimpan simulasi.
+      </p>
+    </section>
+
+    <section class="section">
+
+      <div class="form-layout">
+
+        <!-- FORMULIR UTAMA -->
+
+        <form
+          id="registrationForm"
+          class="form-card reveal-left"
+        >
+
+          <!-- DATA SISWA -->
+
+          <section class="form-section">
+
+            <span class="form-kicker">01 · Student profile</span>
+            <h2>Data calon siswa</h2>
+
+            <div class="form-grid">
+
+              <div class="field full">
+                <label for="full_name">
+                  Nama lengkap <span class="required">*</span>
+                </label>
+
+                <input
+                  class="input"
+                  type="text"
+                  id="full_name"
+                  name="full_name"
+                  placeholder="Masukkan nama lengkap"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label for="nisn">NISN</label>
+
+                <input
+                  class="input"
+                  type="text"
+                  id="nisn"
+                  name="nisn"
+                  placeholder="Masukkan NISN"
+                >
+
+                <span class="help">Opsional untuk demonstrasi.</span>
+              </div>
+
+              <div class="field">
+                <label for="gender">
+                  Jenis kelamin <span class="required">*</span>
+                </label>
+
+                <select
+                  class="select"
+                  id="gender"
+                  name="gender"
+                  required
+                >
+                  <option value="">Pilih jenis kelamin</option>
+                  <option value="Laki-laki">Laki-laki</option>
+                  <option value="Perempuan">Perempuan</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="birth_place">
+                  Tempat lahir <span class="required">*</span>
+                </label>
+
+                <input
+                  class="input"
+                  type="text"
+                  id="birth_place"
+                  name="birth_place"
+                  placeholder="Kota kelahiran"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label for="birth_date">
+                  Tanggal lahir <span class="required">*</span>
+                </label>
+
+                <input
+                  class="input"
+                  type="date"
+                  id="birth_date"
+                  name="birth_date"
+                  required
+                >
+              </div>
+
+              <div class="field full">
+                <label for="address">
+                  Alamat lengkap <span class="required">*</span>
+                </label>
+
+                <textarea
+                  class="textarea"
+                  id="address"
+                  name="address"
+                  placeholder="Masukkan alamat tempat tinggal"
+                  required
+                ></textarea>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- DATA SEKOLAH -->
+
+          <section class="form-section">
+
+            <span class="form-kicker">02 · Education</span>
+            <h2>Informasi pendidikan</h2>
+
+            <div class="form-grid">
+
+              <div class="field full">
+                <label for="origin_school">
+                  Sekolah asal <span class="required">*</span>
+                </label>
+
+                <input
+                  class="input"
+                  type="text"
+                  id="origin_school"
+                  name="origin_school"
+                  placeholder="Nama sekolah asal"
+                  required
+                >
+              </div>
+
+              <div class="field full">
+                <label for="major">
+                  Program pilihan <span class="required">*</span>
+                </label>
+
+                <select
+                  class="select"
+                  id="major"
+                  name="major"
+                  required
+                >
+                  <option value="">Pilih program</option>
+                  <option value="Akademik">Akademik</option>
+                  <option value="Teknologi Digital">Teknologi Digital</option>
+                  <option value="Sains">Sains</option>
+                  <option value="Bahasa dan Literasi">Bahasa dan Literasi</option>
+                  <option value="Kreativitas dan Desain">Kreativitas dan Desain</option>
+                  <option value="Pengembangan Diri">Pengembangan Diri</option>
+                </select>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- ORANG TUA -->
+
+          <section class="form-section">
+
+            <span class="form-kicker">03 · Parent information</span>
+            <h2>Data orang tua atau wali</h2>
+
+            <div class="form-grid">
+
+              <div class="field full">
+                <label for="parent_name">
+                  Nama orang tua atau wali
+                  <span class="required">*</span>
+                </label>
+
+                <input
+                  class="input"
+                  type="text"
+                  id="parent_name"
+                  name="parent_name"
+                  placeholder="Nama orang tua atau wali"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label for="parent_phone">
+                  Nomor telepon <span class="required">*</span>
+                </label>
+
+                <input
+                  class="input"
+                  type="tel"
+                  id="parent_phone"
+                  name="parent_phone"
+                  placeholder="08xxxxxxxxxx"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+
+                <input
+                  class="input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="nama@email.com"
+                >
+              </div>
+
+            </div>
+          </section>
+
+          <!-- FOTO -->
+
+          <section class="form-section">
+
+            <span class="form-kicker">04 · Photo</span>
+            <h2>Foto calon siswa</h2>
+
+            <div class="upload-box">
+
+              <strong>Pilih foto calon siswa</strong>
+
+              <p class="help">
+                JPG atau PNG · Maksimal 2 MB
+              </p>
+
+              <input
+                type="file"
+                id="photo"
+                name="photo"
+                accept="image/jpeg,image/png"
+              >
+
+              <p class="help">
+                Pratinjau hanya ada di browser. File tidak diunggah ke server.
+              </p>
+
+              <img
+                id="photoPreview"
+                class="photo-preview"
+                alt="Pratinjau foto calon siswa"
+              >
+
+            </div>
+
+          </section>
+
+          <!-- PERSETUJUAN -->
+
+          <section class="form-section">
+
+            <div class="agreement">
+
+              <input
+                type="checkbox"
+                id="agreement"
+                name="agreement"
+                required
+              >
+
+              <label for="agreement">
+                Saya menyatakan data yang saya masukkan benar
+                untuk keperluan simulasi website ini.
+              </label>
+
+            </div>
+
+            <div class="submit-row">
+              <button
+                type="submit"
+                class="btn btn-primary"
+              >
+                Simpan simulasi <span>→</span>
+              </button>
+            </div>
+
+          </section>
+
+        </form>
+
+        <!-- RINGKASAN DATA -->
+
+        <aside class="summary-card reveal-right">
+
+          <span class="form-kicker">Application summary</span>
+
+          <h2>Ringkasan data</h2>
+
+          <p>
+            Diperbarui langsung saat formulir diisi.
+          </p>
+
+          <div class="summary-item">
+            <span>Nama calon siswa</span>
+            <strong id="summaryName">Belum diisi</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Sekolah asal</span>
+            <strong id="summarySchool">Belum diisi</strong>
+          </div>
+
+          <div class="summary-item">
+            <span>Program</span>
+            <strong id="summaryMajor">Belum dipilih</strong>
+          </div>
+
+          <div class="notice">
+            Setelah formulir valid, halaman konfirmasi menampilkan
+            nomor registrasi demo.
+          </div>
+
+          <a
+            href="info.html"
+            class="text-link"
+          >
+            ← Kembali ke informasi PPDB
+          </a>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+</body>
+</html>

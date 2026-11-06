@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Informasi kontak dan formulir pesan demo Dar El Ilmi.">
+  <title>Kontak Sekolah | Dar El Ilmi</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body data-page="kontak">
+  <div class="site-loader" aria-hidden="true">
+    <div class="loader-brand"><span class="loader-emblem">✦</span><span>Dar El Ilmi</span></div>
+  </div>
+
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <div id="site-header"></div>
+
+  <main id="main" class="container page-main">
+
+    <section class="page-banner reveal">
+      <h1>Mulai percakapan.</h1>
+      <p>
+        Halaman kontak dengan formulir interaktif dan notifikasi.
+        Ganti detail kontak berikut dengan informasi resmi sekolah.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="contact-grid">
+
+        <article class="panel reveal">
+          <span class="section-kicker">School information</span>
+          <h2 style="margin-top:8px">Hubungi Dar El Ilmi</h2>
+
+          <div class="contact-detail">
+            <span class="contact-symbol">⌖</span>
+            <div>
+              <strong>Alamat kampus</strong>
+              <p>Alamat resmi sekolah, kota, provinsi</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-symbol">✆</span>
+            <div>
+              <strong>Telepon</strong>
+              <p>Nomor telepon sekolah</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-symbol">@</span>
+            <div>
+              <strong>Email</strong>
+              <p>email@contoh-sekolah.sch.id</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-symbol">◷</span>
+            <div>
+              <strong>Jam layanan</strong>
+              <p>Senin–Jumat · 08.00–15.00</p>
+            </div>
+          </div>
+
+          <div class="notice">
+            Informasi di atas merupakan placeholder. Form kontak tidak mengirim
+            email; isinya hanya disimpan secara lokal sebagai simulasi.
+          </div>
+        </article>
+
+        <form id="contactForm" class="form-card reveal delay-1">
+          <span class="section-kicker">Send a message</span>
+          <h2 style="margin:8px 0 20px">Ada yang bisa kami bantu?</h2>
+
+          <div class="form-grid">
+            <div class="field full">
+              <label for="contactName">Nama <span class="required">*</span></label>
+              <input class="input" id="contactName" name="contactName" required maxlength="100" placeholder="Nama">
+            </div>
+
+            <div class="field full">
+              <label for="contactEmail">Email <span class="required">*</span></label>
+              <input class="input" id="contactEmail" name="contactEmail" type="email" required placeholder="nama@email.com">
+            </div>
+
+            <div class="field full">
+              <label for="contactTopic">Topik <span class="required">*</span></label>
+              <select class="select" id="contactTopic" name="contactTopic" required>
+                <option value="">Pilih topik</option>
+                <option>Informasi PPDB</option>
+                <option>Program akademik</option>
+                <option>Perpustakaan</option>
+                <option>Fasilitas kampus</option>
+                <option>Pertanyaan lainnya</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="contactMessage">Pesan <span class="required">*</span></label>
+              <textarea class="textarea" id="contactMessage" name="contactMessage" required maxlength="2000" placeholder="Tuliskan pertanyaanmu"></textarea>
+            </div>
+          </div>
+
+          <div class="notice">
+            Pesan disimpan lokal untuk demonstrasi. Tidak ada email yang dikirim.
+          </div>
+
+          <div class="submit-row">
+            <button class="btn btn-primary" type="submit">Simpan pesan demo →</button>
+          </div>
+
+          <div class="success-message" id="contactSuccess" role="status"></div>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

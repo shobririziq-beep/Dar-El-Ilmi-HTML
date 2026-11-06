@@ -1,0 +1,908 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Jelajahi gambaran fasilitas dan lingkungan belajar Dar El Ilmi."
+  >
+
+  <title>Fasilitas Sekolah | Dar El Ilmi</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+  <style>
+    /* ==============================================
+       FACILITIES PAGE
+    ============================================== */
+
+    .facility-page {
+      padding-bottom: 75px;
+      color: #fff;
+    }
+
+    .facility-hero {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 42px;
+      padding: 43px;
+      border: 1px solid #3970ae;
+      border-radius: 23px;
+      background:
+        radial-gradient(
+          circle at 95% 0,
+          #3f77c2,
+          transparent 38%
+        ),
+        linear-gradient(120deg, #08264c, #2059a8);
+      box-shadow: 0 15px 35px #061d3c30;
+    }
+
+    .facility-hero::after {
+      position: absolute;
+      top: -100px;
+      right: 30px;
+      width: 230px;
+      height: 230px;
+      border: 1px solid #ffffff35;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 25px #ffffff09,
+        0 0 0 50px #ffffff06;
+      content: "";
+      pointer-events: none;
+    }
+
+    .facility-kicker {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid #ffffff50;
+      border-radius: 30px;
+      background: #ffffff13;
+      color: #e8f1ff;
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .facility-kicker span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #70e8bd;
+    }
+
+    .facility-hero h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 790px;
+      margin-top: 18px;
+      color: #fff;
+      font-size: clamp(35px, 5vw, 55px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .facility-hero p {
+      position: relative;
+      z-index: 1;
+      max-width: 660px;
+      margin-top: 15px;
+      color: #deebff;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    /* INTRODUCTION */
+
+    .facility-intro {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 26px;
+    }
+
+    .facility-intro-copy {
+      max-width: 680px;
+    }
+
+    .facility-intro-label {
+      color: #b9d4ff;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .facility-intro h2 {
+      margin-top: 9px;
+      color: #fff;
+      font-size: clamp(26px, 3.7vw, 39px);
+      font-weight: 850;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .facility-intro p {
+      margin-top: 10px;
+      color: #d1e0f6;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .facility-total {
+      flex-shrink: 0;
+      padding: 11px 15px;
+      border: 1px solid #ffffff35;
+      border-radius: 12px;
+      background: #ffffff12;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* GALLERY GRID */
+
+    .facility-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 23px;
+    }
+
+    /* EACH CARD */
+
+    .facility-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid #d7e3f1;
+      border-radius: 18px;
+      background: #fff;
+      color: #102b50;
+      box-shadow: 0 10px 27px rgba(3, 20, 43, .14);
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+    }
+
+    .facility-card:hover {
+      transform: translateY(-6px);
+      border-color: #95b6f2;
+      box-shadow: 0 18px 37px rgba(3, 20, 43, .2);
+    }
+
+    /* IMAGE — HEIGHT IS CONTROLLED */
+
+    .facility-image {
+      position: relative;
+      height: 190px;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #dce8f7;
+    }
+
+    .facility-image img {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      transition: transform .65s ease;
+    }
+
+    .facility-card:hover .facility-image img {
+      transform: scale(1.07);
+    }
+
+    .facility-image::after {
+      position: absolute;
+      inset: 45% 0 0;
+      background: linear-gradient(
+        transparent,
+        rgba(5, 25, 53, .45)
+      );
+      content: "";
+      pointer-events: none;
+    }
+
+    .facility-number {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border: 1px solid #ffffff70;
+      border-radius: 8px;
+      background: #08264cbd;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      backdrop-filter: blur(8px);
+    }
+
+    .facility-category {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      z-index: 2;
+      padding: 6px 9px;
+      border: 1px solid #ffffff70;
+      border-radius: 8px;
+      background: #ffffffed;
+      color: #17447f;
+      font-size: 9px;
+      font-weight: 850;
+    }
+
+    /* TEXT CONTENT */
+
+    .facility-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 19px 19px 20px;
+    }
+
+    .facility-content h3 {
+      color: #102b50;
+      font-size: 16px;
+      font-weight: 850;
+      line-height: 1.4;
+      letter-spacing: -.3px;
+    }
+
+    .facility-content p {
+      flex: 1;
+      margin-top: 9px;
+      color: #657b96;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .facility-content-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid #e8edf5;
+    }
+
+    .facility-content-bottom span {
+      color: #8495aa;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .facility-content-bottom i {
+      display: grid;
+      width: 29px;
+      height: 29px;
+      place-items: center;
+      border-radius: 9px;
+      background: #eaf1ff;
+      color: #285fe8;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    /* FEATURE SECTION */
+
+    .facility-highlight {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 30px;
+      margin-top: 65px;
+      padding: 23px;
+      border: 1px solid #3265a3;
+      border-radius: 22px;
+      background: #10396e;
+      box-shadow: 0 13px 32px rgba(3, 20, 43, .14);
+    }
+
+    .facility-highlight-image {
+      position: relative;
+      min-height: 285px;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #08264c;
+    }
+
+    .facility-highlight-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+
+    .facility-highlight:hover img {
+      transform: scale(1.05);
+    }
+
+    .facility-highlight-copy {
+      padding: 16px;
+    }
+
+    .facility-highlight-copy small {
+      color: #b8d3ff;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .facility-highlight-copy h2 {
+      margin-top: 12px;
+      color: #fff;
+      font-size: clamp(26px, 3.7vw, 39px);
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .facility-highlight-copy p {
+      margin-top: 12px;
+      color: #d7e6fb;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .facility-highlight-copy .btn {
+      margin-top: 19px;
+    }
+
+    /* CTA */
+
+    .facility-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      margin-top: 40px;
+      padding: 31px;
+      border: 1px solid #d9e4f2;
+      border-radius: 19px;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(3, 20, 43, .13);
+    }
+
+    .facility-cta h2 {
+      color: #102b50;
+      font-size: clamp(22px, 3vw, 31px);
+      line-height: 1.25;
+    }
+
+    .facility-cta p {
+      margin-top: 8px;
+      color: #687f9a;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .facility-cta .btn {
+      flex-shrink: 0;
+      background: #285fe8;
+      color: #fff;
+    }
+
+    .facility-note {
+      margin-top: 17px;
+      color: #cadaf0;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 950px) {
+      .facility-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 19px;
+      }
+
+      .facility-highlight {
+        grid-template-columns: 1fr;
+      }
+
+      .facility-highlight-image {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .facility-hero {
+        padding: 27px 21px;
+        margin-bottom: 31px;
+      }
+
+      .facility-hero h1 {
+        font-size: 35px;
+      }
+
+      .facility-hero p {
+        font-size: 12px;
+      }
+
+      .facility-intro {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .facility-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+      }
+
+      .facility-image {
+        height: 135px;
+      }
+
+      .facility-content {
+        padding: 13px;
+      }
+
+      .facility-content h3 {
+        font-size: 13px;
+      }
+
+      .facility-content p {
+        font-size: 10px;
+        line-height: 1.65;
+      }
+
+      .facility-content-bottom span {
+        font-size: 8px;
+      }
+
+      .facility-content-bottom i {
+        width: 25px;
+        height: 25px;
+      }
+
+      .facility-highlight {
+        margin-top: 42px;
+        padding: 13px;
+      }
+
+      .facility-highlight-image {
+        min-height: 210px;
+      }
+
+      .facility-highlight-copy {
+        padding: 10px;
+      }
+
+      .facility-cta {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+      }
+
+      .facility-cta .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .facility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facility-image {
+        height: 190px;
+      }
+
+      .facility-content {
+        padding: 17px;
+      }
+
+      .facility-content h3 {
+        font-size: 15px;
+      }
+
+      .facility-content p {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body data-page="fasilitas">
+
+  <div class="site-loader" aria-hidden="true">
+    <div class="loader-brand">
+      <span class="loader-emblem">DI</span>
+      <span>Dar El Ilmi</span>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <div id="site-header"></div>
+
+  <main id="main" class="container page-main facility-page">
+
+    <!-- HERO -->
+
+    <section class="facility-hero reveal">
+
+      <h1>Ruang yang menginspirasi. Fasilitas yang mendukung.</h1>
+
+      <p>
+        Lingkungan belajar yang dirancang untuk mendorong rasa ingin tahu,
+        mengembangkan kreativitas, dan membuka kesempatan bagi setiap siswa
+        untuk bertumbuh.
+      </p>
+
+    </section>
+
+    <!-- INTRO -->
+
+    <section class="facility-intro reveal">
+
+      <div class="facility-intro-copy">
+        <span class="facility-intro-label">
+          Explore our campus
+        </span>
+
+        <h2>Jelajahi lingkungan Dar El Ilmi.</h2>
+
+        <p>
+          Dari ruang akademik hingga fasilitas teknologi,
+          setiap area memiliki peran dalam membangun pengalaman belajar
+          yang lebih luas dan menyenangkan.
+        </p>
+      </div>
+
+      <div class="facility-total">
+        09 AREA ILUSTRASI
+      </div>
+
+    </section>
+
+    <!-- GALLERY -->
+
+    <section class="facility-grid" aria-label="Galeri fasilitas sekolah">
+
+      <!-- 01 -->
+
+      <article class="facility-card reveal">
+        <div class="facility-image">
+          <img
+            src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=85"
+            alt="Arsitektur gedung sekolah modern"
+            loading="lazy"
+          >
+
+          <span class="facility-number">01 / 09</span>
+          <span class="facility-category">Architecture</span>
+        </div>
+
+        <div class="facility-content">
+          <h3>Gedung Sekolah Modern</h3>
+
+          <p>
+            Arsitektur modern dengan suasana lingkungan yang
+            dirancang untuk mendukung kegiatan pendidikan.
+          </p>
+
+          <div class="facility-content-bottom">
+            <span>Campus architecture</span>
+            <i>↗</i>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+
+      <article class="facility-card reveal delay-1">
+        <div class="facility-image">
+          <img
+            src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=85"
+            alt="Rak buku perpustakaan"
+            loading="lazy"
+          >
+
+          <span class="facility-number">02 / 09</span>
+          <span class="facility-category">Knowledge</span>
+        </div>
+
+        <div class="facility-content">
+          <h3>Perpustakaan</h3>
+
+          <p>
+            Ruang membaca yang mendukung kebiasaan literasi,
+            penelitian, dan eksplorasi pengetahuan.
+          </p>
+
+          <div class="facility-content-bottom">
+            <span>Library space</span>
+            <i>↗</i>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+
+      <article class="facility-card reveal delay-2">
+        <div class="facility-image">
+          <img
+            src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=85"
+            alt="Komputer untuk kegiatan teknologi"
+            loading="lazy"
+          >
+
+          <span class="facility-number">03 / 09</span>
+          <span class="facility-category">Technology</span>
+        </div>
+
+        <div class="facility-content">
+          <h3>Laboratorium Komputer</h3>
+
+          <p>
+            Area praktik digital untuk mengenal teknologi,
+            pemrograman, dan berbagai keterampilan komputer.
+          </p>
+
+          <div class="facility-content-bottom">
+            <span>Digital laboratory</span>
+            <i>↗</i>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 -->
+
+      <article class="facility-card reveal">
+        <div class="facility-image">
+          <img
+            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85"
+            alt="Kegiatan pembelajaran di ruang kelas"
+            loading="lazy"
+          >
+
+          <span class="facility-number">04 / 09</span>
+          <span class="facility-category">Classroom</span>
+        </div>
+
+        <div class="facility-content">
+          <h3>Ruang Kelas Kolaboratif</h3>
+
+          <p>
+            Lingkungan kelas yang mendorong interaksi,
+            diskusi, dan kegiatan belajar bersama.
+          </p>
+
+          <div class="facility-content-bottom">
+            <span>Learning space</span>
+            <i>↗</i>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 -->
+
+      <article class="facility-card reveal delay-1">
+        <div class="facility-image">
+          <img
+            src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=900&q=85"
+            alt="Kegiatan siswa dalam lingkungan pendidikan"
+            loading="lazy"
+          >
+
+          <span class="facility-number">05 / 09</span>
+          <span class="facility-category">Community</span>
+        </div>
+
+        <div class="facility-content">
+          <h3>Area Komunitas Siswa</h3>
+
+          <p>
+            Area untuk membangun hubungan sosial,
+            mengembangkan minat, dan melakukan kegiatan bersama.
+          </p>
+
+          <div class="facility-content-bottom">
+            <span>Student community</span>
+            <i>↗</i>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 -->
+
+      <article class="facility-card reveal delay-2">
+        <div class="facility-image">
+          <img
+            src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=85"
+            alt="Kegiatan praktik laboratorium sains"
+            loading="lazy"
+          >
+
+          <span class="facility-number">06 / 09</span>
+          <span class="facility-category">Science</span>
+        </div>
+
+        <div class="facility-content">
+          <h3>Laboratorium Praktik</h3>
+
+          <p>
+            Gambaran ruang pembelajaran berbasis eksperimen,
+            pengamatan, dan pengembangan pemikiran ilmiah.
+          </p>
+
+          <div class="facility-content-bottom">
+            <span>Science laboratory</span>
+            <i>↗</i>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 -->
+
+      <article class="facility-card reveal">
+        <div class="facility-image">
+          <img
+            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=85"
+            alt="Siswa bekerja dalam tim"
+            loading="lazy"
+          >
+
+          <span class="facility-number">07 / 09</span>
+          <span class="facility-category">Collaboration</span>
+        </div>
+
+        <div class="facility-content">
+          <h3>Ruang Kerja Tim</h3>
+
+          <p>
+            Ruang yang mendukung pengerjaan proyek,
+            pertukaran gagasan, dan kolaborasi.
+          </p>
+
+          <div class="facility-content-bottom">
+            <span>Team workspace</span>
+            <i>↗</i>
+          </div>
+        </div>
+      </article>
+
+      <!-- 08 -->
+
+      <article class="facility-card reveal delay-1">
+        <div class="facility-image">
+          <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85"
+            alt="Teknologi dan perangkat digital"
+            loading="lazy"
+          >
+
+          <span class="facility-number">08 / 09</span>
+          <span class="facility-category">Digital</span>
+        </div>
+
+        <div class="facility-content">
+          <h3>Pusat Teknologi Digital</h3>
+
+          <p>
+            Pengalaman belajar yang mengintegrasikan
+            teknologi dan kreativitas dalam kegiatan pendidikan.
+          </p>
+
+          <div class="facility-content-bottom">
+            <span>Digital experience</span>
+            <i>↗</i>
+          </div>
+        </div>
+      </article>
+
+      <!-- 09 -->
+
+      <article class="facility-card reveal delay-2">
+        <div class="facility-image">
+          <img
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85"
+            alt="Siswa beraktivitas bersama"
+            loading="lazy"
+          >
+
+          <span class="facility-number">09 / 09</span>
+          <span class="facility-category">Student life</span>
+        </div>
+
+        <div class="facility-content">
+          <h3>Area Aktivitas Siswa</h3>
+
+          <p>
+            Ruang untuk kegiatan pengembangan diri,
+            interaksi, dan pengalaman di luar kelas.
+          </p>
+
+          <div class="facility-content-bottom">
+            <span>Student activities</span>
+            <i>↗</i>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- FEATURE -->
+
+    <section class="facility-highlight reveal">
+
+      <div class="facility-highlight-image">
+        <img
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85"
+          alt="Gedung metropolitan modern"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="facility-highlight-copy">
+
+        <small>Designed for the future</small>
+
+        <h2>Lingkungan yang mendorong potensi.</h2>
+
+        <p>
+          Fasilitas dan ruang belajar merupakan bagian dari pengalaman
+          pendidikan. Setiap lingkungan diharapkan mendukung proses
+          belajar, kreativitas, dan pembentukan karakter.
+        </p>
+
+        <a href="program.html" class="btn btn-primary">
+          Jelajahi program pendidikan →
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- CTA -->
+
+    <section class="facility-cta reveal">
+
+      <div>
+        <h2>Kenali lebih dekat Dar El Ilmi.</h2>
+
+        <p>
+          Temukan program pembelajaran dan informasi penerimaan
+          peserta didik baru.
+        </p>
+      </div>
+
+      <a href="info.html" class="btn">
+        Informasi pendaftaran →
+      </a>
+
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+</body>
+</html>
